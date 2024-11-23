@@ -11,7 +11,9 @@ import requests
 from io import BytesIO
 from docx2pdf import convert
 from PyPDF2 import PdfReader, PdfWriter
-import pythoncom
+import platform
+if platform.system()=="Windows":
+    import pythoncom
 from dotenv import load_dotenv
 import tempfile
 from flask_cors import CORS
@@ -68,11 +70,14 @@ def safe_convert(docx_path, pdf_path):
     """
     Safely convert a .docx file to PDF by ensuring COM is properly initialized.
     """
-    pythoncom.CoInitialize()  # Initialize COM for the current thread
-    try:
-        convert(docx_path, pdf_path)  # Perform the conversion
-    finally:
-        pythoncom.CoUninitialize()  # Ensure COM is uninitialized
+    if platform.system()=="Windows":
+        pythoncom.CoInitialize()  # Initialize COM for the current thread
+        try:
+            convert(docx_path, pdf_path)  # Perform the conversion
+        finally:
+            pythoncom.CoUninitialize()  # Ensure COM is uninitialized
+    else:
+        convert(docx_path, pdf_path)
 
 
 @app.route('/convert', methods=['POST'])
