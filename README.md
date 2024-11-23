@@ -30,133 +30,6 @@ A web-based application that allows users to upload Word files (.docx), convert 
 - Cloudinary (for file management, if used)
 - Docker for containerization
 
-## Run Locally
-
-### *1. Clone the Repository*
-bash
-git clone https://github.com/yourusername/WordToPDF.git
-cd WordToPDF
-
-
-### *2. Create a Virtual Environment*
-Set up a Python virtual environment and activate it:
-bash
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
-
-
-### *3. Install Dependencies*
-Install the required Python libraries:
-bash
-pip install -r requirements.txt
-
-
-### *4. Set Up Environment Variables*
-Create a .env file in the project root and configure your environment variables:
-env
-CLOUD_NAME=your-cloud-name
-API_KEY=your-api-key
-API_SECRET=your-api-secret
-
-
-### *5. Run the Application*
-Start the Flask development server:
-bash
-python ./app/run.py
-
-
-The application will be accessible at http://localhost:5000.
-### *1. Clone the Repository*
-bash
-git clone https://github.com/yourusername/WordToPDF.git
-cd WordToPDF
-
-
-### *2. Create a Virtual Environment*
-Set up a Python virtual environment and activate it:
-bash
-python -m venv venv
-# On Windows
-venv\Scripts\activate
-# On macOS/Linux
-source venv/bin/activate
-
-
-### *3. Install Dependencies*
-Install the required Python libraries:
-bash
-pip install -r requirements.txt
-
-
-### *4. Set Up Environment Variables*
-Create a .env file in the project root and configure your environment variables:
-env
-CLOUD_NAME=your-cloud-name
-API_KEY=your-api-key
-API_SECRET=your-api-secret
-
-
-### *5. Run the Application*
-Start the Flask development server:
-bash
-python ./app/run.py
-
-
-The application will be accessible at http://localhost:5000.
-
-## *Docker Instructions*
-
-### *1. Build the Docker Image*
-bash
-docker build -t wordtopdf .
-
-
-### *2. Run the Docker Container*
-bash
-docker run -d -p 5000:5000 --env-file .env --name wordtopdf-container wordtopdf
-
-
-### *3. Access the Application*
-Go to [http://localhost:5000](http://localhost:5000) in your browser.
-## *Usage*
-
-### *1. Upload a Word File*
-1. Click the "Upload File" button.
-2. Select a .docx file to upload.
-3. Once the file is uploaded, you’ll receive a status message.
-
-### *2. Convert Word to PDF*
-1. After uploading, click the "Convert to PDF" button.
-2. The converted PDF will be downloaded automatically.
-
-### *3. Add Password to PDF*
-1. Enter a password in the input field.
-2. Click the "Add Password" button.
-3. A password-protected PDF will be downloaded.
-
-### *4. Extract Metadata*
-1. Click the "Get Metadata" button.
-2. Metadata details will be displayed on the screen.
-## *Project Structure*
-
-WordToPDF/
-│
-├── app/
-│   ├── static/          # Static files (CSS, JS, images, etc.)
-│   ├── templates/       # HTML templates
-│   ├── run.py           # Main Flask application
-│   └── ...              # Other backend modules
-│
-├── venv/                # Virtual environment (not included in Git)
-├── Dockerfile           # Docker configuration
-├── .env                 # Environment variables (ignored in Git)
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
-└── ...
-
 ## *Endpoints*
 
 ### **1. /upload**
@@ -197,13 +70,122 @@ WordToPDF/
       }
   }
 
-## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+## Run Locally
 
-`CLOUD_NAME`
+### *1. Clone the Repository*
+bash
+git clone https://github.com/jkaus324/WordToPDF
+cd WordToPDF
 
-`API_KEY`
 
-`API_SECRET`
+### *2. Create a Virtual Environment*
+Set up a Python virtual environment and activate it:
+bash
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
+
+
+### *3. Install Dependencies*
+Install the required Python libraries:
+bash
+pip install -r requirements.txt
+
+
+### *4. Set Up Environment Variables*
+Create a .env file in the project root and configure your environment variables:
+env
+CLOUD_NAME=your-cloud-name
+API_KEY=your-api-key
+API_SECRET=your-api-secret
+
+
+### *5. Run the Application*
+Start the Flask development server:
+bash
+python ./app/run.py
+
+
+The application will be accessible at http://localhost:5000.
+### *1. Clone the Repository*
+bash
+git clone https://github.com/yourusername/WordToPDF.git
+cd WordToPDF
+
+
+### *2. Create a Virtual Environment*
+Set up a Python virtual environment and activate it:
+bash
+python -m venv venv
+# On Windows
+venv\Scripts\activate
+# On macOS/Linux
+source venv/bin/activate
+
+
+### *3. Install Dependencies*
+Install the required Python libraries:
+bash
+pip install -r requirements.txt
+
+
+### *4. Set Up Environment Variables*
+Create a .env file in the project root and configure your environment variables:
+env
+CLOUD_NAME=your-cloud-name
+API_KEY=your-api-key
+API_SECRET=your-api-secret
+
+
+### *5. Run the Application*
+Start the Flask development server:
+bash
+python ./app/run.py
+
+
+The application will be accessible at http://localhost:5000.
+
+
+
+## *Docker Instructions*
+
+### *1. Build the Docker Image*
+bash
+docker build -t wordtopdf .
+
+
+### *2. Run the Docker Container*
+bash
+docker run -d -p 5000:5000 --env-file .env --name wordtopdf-container wordtopdf
+
+
+### *3. Access the Application*
+Go to [http://localhost:5000](http://localhost:5000) in your browser.
+## *Usage*
+
+### *1. Upload a Word File*
+1. Click the "Upload File" button.
+2. Select a .docx file to upload.
+3. Once the file is uploaded, you’ll receive a status message.
+
+### *2. Convert Word to PDF*
+1. After uploading, click the "Convert to PDF" button.
+2. The converted PDF will be downloaded automatically.
+
+### *3. Add Password to PDF*
+1. Enter a password in the input field.
+2. Click the "Add Password" button.
+3. A password-protected PDF will be downloaded.
+
+### *4. Extract Metadata*
+1. Click the "Get Metadata" button.
+2. Metadata details will be displayed on the screen.
+
+
+
+
+
 
