@@ -14,10 +14,12 @@ from PyPDF2 import PdfReader, PdfWriter
 import pythoncom
 from dotenv import load_dotenv
 import tempfile
+from flask_cors import CORS
 
 load_dotenv()
-
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5000"}})  # Replace with your frontend URL
+
 
 # Configure Cloudinary with your credentials
 cloudinary.config(
@@ -48,11 +50,13 @@ def upload_file():
             folder="uploads",  
             resource_type="auto"  
         )
+        print(upload_result['secure_url'])
         return jsonify({
             'message': 'File uploaded successfully',
             'file_url': upload_result['secure_url']  # Cloudinary secure URL
         }), 200
     except Exception as e:
+        print(e)
         return jsonify({'error': f"An error occurred: {str(e)}"}), 500
 
 
@@ -264,4 +268,4 @@ def get_metadata():
         return jsonify({'error': f'An error occurred while processing the file: {str(e)}'}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=5000,debug=True)

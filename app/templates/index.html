@@ -100,7 +100,7 @@
                 statusMessage.textContent = 'Converting file to PDF...';
                 statusMessage.className = 'text-info';
 
-                const response = await axios.post('http://127.0.0.1:5000/convert', { file_url: uploadedFileUrl }, {
+                const response = await axios.post('http://localhost:5000/convert', { file_url: uploadedFileUrl }, {
                     responseType: 'blob'
                 });
 
@@ -143,7 +143,7 @@
                 statusMessage.textContent = 'Adding password to PDF...';
                 statusMessage.className = 'text-info';
 
-                const response = await axios.post('http://127.0.0.1:5000/password-protection', {
+                const response = await axios.post('http://localhost:5000/password-protection', {
                     file_url: uploadedFileUrl,
                     password: passwordInput.value
                 }, {
@@ -182,7 +182,7 @@
                 statusMessage.textContent = 'Fetching metadata...';
                 statusMessage.className = 'text-info';
 
-                const response = await axios.post('http://127.0.0.1:5000/metadata', { file_url: uploadedFileUrl });
+                const response = await axios.post('http://localhost:5000/metadata', { file_url: uploadedFileUrl });
 
                 const metadata = response.data.metadata;
                 statusMessage.innerHTML = `

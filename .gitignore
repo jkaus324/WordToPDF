@@ -1,2 +1,21 @@
-config.py
+# Virtual environment
+venv
+venv/
+
+# Environment variable files
 .env
+
+# IDE and editor configurations
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.swp
+*.swo
